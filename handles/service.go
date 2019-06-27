@@ -11,7 +11,7 @@ import (
 
 func ProcessService(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.URL.Path)
-	pathes := strings.Split(r.URL.Path, "/")[1:]
+	pathes := strings.Split(r.URL.Path, "/")[2:]
 
 	if len(pathes) != 2 {
 		w.WriteHeader(http.StatusBadRequest)

@@ -17,15 +17,15 @@ func AppJsonMiddleware(h http.Handler) http.Handler {
 func main() {
 	dbqueries.InitDB()
 
-	http.Handle("/forum/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessForum)))
+	http.Handle("/api/forum/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessForum)))
 
-	http.Handle("/post/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessPost)))
+	http.Handle("/api/post/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessPost)))
 
-	http.Handle("/service/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessService)))
+	http.Handle("/api/service/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessService)))
 
-	http.Handle("/thread/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessThread)))
+	http.Handle("/api/thread/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessThread)))
 
-	http.Handle("/user/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessUser)))
+	http.Handle("/api/user/", AppJsonMiddleware(http.HandlerFunc(handles.ProcessUser)))
 
 	http.ListenAndServe(":5000", nil)
 }
